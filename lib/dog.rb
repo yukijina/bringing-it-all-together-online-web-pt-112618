@@ -76,7 +76,7 @@ class Dog
   end
   
   def update
-    
+    Dog.new(id: self.id, name: self.name, breed: self.breed)
   end 
   
 end 
