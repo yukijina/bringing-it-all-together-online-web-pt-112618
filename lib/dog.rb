@@ -75,8 +75,7 @@ class Dog
     end.first     
   end
   
-  def update
-    
+  def update(test)
   end 
   
 end 
