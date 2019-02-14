@@ -77,7 +77,7 @@ class Dog
   
   def update
     sql = <<-SQL
-      SELECT * FROM dogs WHERE name = ?
+      SELECT * FROM dogs WHERE name = ? LIMIT 1
     SQL
     binding.pry
     DB[:conn].execute(sql, self.name).map do |row|
