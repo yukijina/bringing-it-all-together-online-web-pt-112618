@@ -79,7 +79,6 @@ class Dog
     sql = <<-SQL
       SELECT * FROM dogs WHERE id = ?
     SQL
-    binding.pry
     DB[:conn].execute(sql, self.id).map do |row|
       Dog.new(id: row[0], name: row[1], breed: row[2])
     end
