@@ -79,12 +79,7 @@ class Dog
     sql = <<-SQL
       UPDATE dogs SET name = ?, breed = ? WHERE id = ?
     SQL
-    
-    if
-    DB[:conn].execute(sql, self.id).map do |row|
-      Dog.new(id: row[0], name: row[1], breed: row[2])
-    end
-    else
+    DB[:conn].execute(sql, self.name, self.breed)
     
   end 
   
