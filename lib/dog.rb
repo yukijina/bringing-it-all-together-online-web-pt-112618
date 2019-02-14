@@ -80,7 +80,7 @@ class Dog
       SELECT * FROM dogs where name = ?
     SQL
     DB[:conn].execute(sql, self).map do |row|
-      Dog.new(id: self.id, name: self.name, breed: self.breed)
+      Dog.new(id: row[0], name: row[1], breed: row[2])
     end
   end 
   
