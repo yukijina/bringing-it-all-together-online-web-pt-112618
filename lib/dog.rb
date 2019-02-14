@@ -76,7 +76,12 @@ class Dog
   end
   
   def update
-    Dog.new(id: self.id, name: self.name, breed: self.breed)
+    sql = <<-SQL
+      SELECT * FROM dogs where name = ?
+    SQL
+    DB[:conn].execute(sql, self).map do |row|
+      Dog.new(id: self.id, name: self.name, breed: self.breed)
+    end
   end 
   
 end 
